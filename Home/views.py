@@ -15,13 +15,16 @@ from django.contrib import messages,auth
 
 # Create your views here.
 class Base(View):
-	views = {}
-	views['categories'] = Category.objects.all()
-	views['brands'] = Brand.objects.all()
+    views = {}
+    views['categories'] = Category.objects.all()
+    views['subcategories']=SubCategory.objects.all()
+    views['subsubcategories']=SubSubCategory.objects.all()
 	
+    
+
 class HomeView(Base):
     def get(self,request):
-        self.views['catagories']=Slider.objects.all()
+        self.views['sliders']=Slider.objects.all()
         self.views['news']=Product.objects.filter(labels='new')
         self.views['hots']=Product.objects.filter(labels='hot')
         self.views['sales']=Product.objects.filter(labels='sale')
