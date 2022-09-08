@@ -205,47 +205,38 @@
         <div class="row margin-bottom-40 ">
             <!-- BEGIN SIDEBAR -->
             <div class="sidebar col-md-3 col-sm-4">
+
+
                 <ul class="list-group margin-bottom-25 sidebar-menu">
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Ladies</a></li>
+                    {% for cat in categories %}
+
                     <li class="list-group-item clearfix dropdown">
                         <a href="shop-product-list.html">
-                            <i class="fa fa-angle-right"></i> Mens
+                            <i class="fa fa-angle-right"></i> {{cat.name}}
 
                         </a>
+                        {% for subcat in cat.subcategory_set.all %}
                         <ul class="dropdown-menu">
+
                             <li class="list-group-item dropdown clearfix">
-                                <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Shoes </a>
+                                <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> {{subcat.name}} </a> {% for subsubcat in subcat.subsubcategory_set.all %}
                                 <ul class="dropdown-menu">
-                                    <li class="list-group-item dropdown clearfix">
-                                        <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 1</a></li>
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="list-group-item dropdown clearfix">
-                                        <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport  </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 1</a></li>
-                                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 2</a></li>
-                                        </ul>
-                                    </li>
+
+                                    <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> {{subsubcat.name}} </a></li>
+
                                 </ul>
+                                {% endfor %}
                             </li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Trainers</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Jeans</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Chinos</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> T-Shirts</a></li>
+
                         </ul>
+                        {% endfor %}
                     </li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Kids</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Accessories</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sports</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Brands</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Electronics</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Home & Garden</a></li>
-                    <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Custom Link</a></li>
+
+
+
+                    {% endfor %}
                 </ul>
+
             </div>
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->

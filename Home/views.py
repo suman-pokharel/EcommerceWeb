@@ -17,8 +17,7 @@ from django.contrib import messages,auth
 class Base(View):
     views = {}
     views['categories'] = Category.objects.all()
-    views['subcategories']=SubCategory.objects.all()
-    views['subsubcategories']=SubSubCategory.objects.all()
+    
 	
     
 

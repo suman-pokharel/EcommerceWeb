@@ -21,7 +21,7 @@ class SubCategory(models.Model):
     slug=models.TextField(unique=True)
        
     def __str__(self):
-        return self.name
+        return self.subcategory.name + " -- " + self.name
 
 class SubSubCategory(models.Model):
     name=models.CharField(max_length=100)
@@ -29,8 +29,7 @@ class SubSubCategory(models.Model):
     slug=models.TextField(unique=True)
        
     def __str__(self):
-        return self.name
-
+        return self.subsubcategory.subcategory.name + " -- " + self.subsubcategory.name + " -- " + self.name
 
 STATUS=(('active','Active'),('','Default'))
 class Slider(models.Model):
