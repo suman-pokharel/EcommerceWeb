@@ -35,7 +35,9 @@ STATUS=(('active','Active'),('','Default'))
 class Slider(models.Model):
     name=models.CharField(max_length=100)
     image=models.ImageField(upload_to ='media')
+    title=models.TextField(blank=True)
     text=models.TextField(blank=True)
+    text1=models.TextField(blank=True)
     rank=models.IntegerField()
     status=models.CharField(choices=STATUS,blank=True,max_length=100)
 

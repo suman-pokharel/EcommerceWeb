@@ -14,66 +14,70 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <!-- First slide -->
+            {% for slide in sliders %} {% if slide.rank == 1 %}
             <div class="item carousel-item-four active">
                 <div class="container">
                     <div class="carousel-position-four text-center">
                         <h2 class="margin-bottom-20 animate-delay carousel-title-v3 border-bottom-title text-uppercase" data-animation="animated fadeInDown">
-                            Tones of <br/><span class="color-red-v2">Shop UI Features</span><br/> designed
+                            {{slide.name}} <br/><span class="color-red-v2">{{slide.title}}</span><br/> {{slide.text}}
                         </h2>
-                        <p class="carousel-subtitle-v2" data-animation="animated fadeInUp">Lorem ipsum dolor sit amet constectetuer diam <br/> adipiscing elit euismod ut laoreet dolore.</p>
+                        <p class="carousel-subtitle-v2" data-animation="animated fadeInUp">{{slide.text1}}</p>
                     </div>
                 </div>
             </div>
+            {% endif %} {% endfor %}{% for slide in sliders %} {% if slide.rank == 2 %}
 
             <!-- Second slide -->
             <div class="item carousel-item-five">
                 <div class="container">
                     <div class="carousel-position-four text-center">
                         <h2 class="animate-delay carousel-title-v4" data-animation="animated fadeInDown">
-                            Unlimted
+                            {{slide.name}}
                         </h2>
                         <p class="carousel-subtitle-v2" data-animation="animated fadeInDown">
-                            Layout Options
+                            {{slide.title}}
                         </p>
                         <p class="carousel-subtitle-v3 margin-bottom-30" data-animation="animated fadeInUp">
-                            Fully Responsive
+                            {{slide.text}}
                         </p>
                         <a class="carousel-btn" href="#" data-animation="animated fadeInUp">See More Details</a>
                     </div>
-                    <img class="carousel-position-five animate-delay hidden-sm hidden-xs" src="assets/pages/img/shop-slider/slide2/price.png" alt="Price" data-animation="animated zoomIn">
+                    <img class="carousel-position-five animate-delay hidden-sm hidden-xs" src="{{slide.image.url}}" alt="Price" data-animation="animated zoomIn">
                 </div>
             </div>
 
+            {% endif %} {% endfor %}{% for slide in sliders %} {% if slide.rank == 3 %}
             <!-- Third slide -->
             <div class="item carousel-item-six">
                 <div class="container">
                     <div class="carousel-position-four text-center">
                         <span class="carousel-subtitle-v3 margin-bottom-15" data-animation="animated fadeInDown">
-                                Full Admin &amp; Frontend
+                                {{slide.name}}
                             </span>
                         <p class="carousel-subtitle-v4" data-animation="animated fadeInDown">
-                            eCommerce UI
+                            {{slide.title}}
                         </p>
                         <p class="carousel-subtitle-v3" data-animation="animated fadeInDown">
-                            Is Ready For Your Project
+                            {{slide.text}}
                         </p>
                     </div>
                 </div>
             </div>
-
+            {% endif %} {% endfor %}{% for slide in sliders %} {% if slide.rank == 4 %}
             <!-- Fourth slide -->
             <div class="item carousel-item-seven">
                 <div class="center-block">
                     <div class="center-block-wrap">
                         <div class="center-block-body">
                             <h2 class="carousel-title-v1 margin-bottom-20" data-animation="animated fadeInDown">
-                                The most <br/> wanted bijouterie
+                                {{slide.name}} <br/>{{slide.title}}
                             </h2>
                             <a class="carousel-btn" href="#" data-animation="animated fadeInUp">But It Now!</a>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endif %} {% endfor %}
         </div>
 
         <!-- Controls -->
