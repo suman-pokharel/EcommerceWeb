@@ -17,6 +17,7 @@ from django.contrib import messages,auth
 class Base(View):
     views = {}
     views['categories'] = Category.objects.all()
+    views['brands'] = Brand.objects.all()
     
 	
     
@@ -28,3 +29,7 @@ class HomeView(Base):
         self.views['hots']=Product.objects.filter(labels='hot')
         self.views['sales']=Product.objects.filter(labels='sale')
         return render(request, 'shop-index.html', self.views)
+
+class BaseView(Base):
+    def get(self,request):
+        return render(request, 'base.html',self.views)
